@@ -75,6 +75,11 @@ var hotjs = hotjs || {};
             } else {
                 if(typeof fail === 'function') fail();
             }
+        },
+        setVolumeForComplexAsset: function(id, volume) {
+            var res = this.res_cache[ id ];
+            res.volume = volume;
+            this.res_cache[ id ] = res;
         }
     };
 

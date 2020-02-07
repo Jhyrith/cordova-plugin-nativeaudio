@@ -55,7 +55,7 @@ exports.stop = function(id, success, fail) {
         res.pause();
         if (res.currentTime) res.currentTime = 0;
         if(typeof success === 'function') success();
-    } else {
+    } else {io
         if(typeof fail === 'function') fail();
     }
 };
@@ -68,4 +68,10 @@ exports.unload = function(id, success, fail) {
     } else {
         if(typeof fail === 'function') fail();
     }
+};
+
+exports.setVolumeForComplexAsset = function(id, volume) {
+  var res = __res_cache[ id ];
+  res.volume = volume;
+  __res_cache[ id ] = res;
 };
